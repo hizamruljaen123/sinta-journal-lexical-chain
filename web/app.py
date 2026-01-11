@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, stream_with_context, Response
+from flask import Flask, render_template, request, stream_with_context, Response, jsonify
 import json
 import requests
 import time
@@ -131,28 +131,78 @@ def search():
     def generate():
         topic = request.form.get('topic')
         sinta_rank = request.form.get('sinta_rank')
+        sources_json = request.form.get('sources_json')
 
         api_key = "d3d775e783819ad347d88e1f236ff3a8a6e883e171e836525df0bd7607bfe995"
         searcher = GoogleSearcher(api_key)
         analyzer = LexicalChainAnalyzer()
 
-        with open('list_journal.json', 'r', encoding='utf-8') as f:
-            journals_data = json.load(f)
+        # Prefer generated JSON from list.html, fallback to original
+        journals_data = None
+        for filename in ("list_journal_from_list_html.json", "list_journal.json"):
+            try:
+                with open(filename, 'r', encoding='utf-8') as f:
+                    journals_data = json.load(f)
+                break
+            except FileNotFoundError:
+                continue
+
+        if journals_data is None:
+            yield "data: ERROR: Tidak ada file JSON daftar jurnal ditemukan.\n\n"
+            return
 
         all_results = []
         snippets = []
-        
-        # First pass to collect snippets for analysis
-        for rank in journals_data:
-            if rank.startswith("SINTA_"):
-                if sinta_rank and rank != f"SINTA_{sinta_rank}":
+
+        # If sources_json provided, parse it and use those explicit journals (array of {nama_jurnal, link, sinta_rank?})
+        if sources_json:
+            try:
+                selected = json.loads(sources_json)
+                if not isinstance(selected, list):
+                    raise ValueError("invalid")
+            except Exception:
+                yield "data: ERROR: format sources_json tidak valid\n\n"
+                return
+
+            for journal in selected:
+                # ensure minimal keys
+                if not journal.get("nama_jurnal") and not journal.get("link"):
+                    continue
+                journal.setdefault("nama_jurnal", journal.get("link", "Tidak ada nama"))
+                journal.setdefault("link", journal.get("link", ""))
+                journal.setdefault("sinta_rank", journal.get("sinta_rank", "SELECTED"))
+                yield f"data: Mencari di {journal['nama_jurnal']} ({journal.get('sinta_rank')})...\n\n"
+                results = searcher.search_google(topic, journal)
+                all_results.extend(results)
+                snippets.extend([r.get('snippet', '') for r in results])
+                time.sleep(1)
+        else:
+            def group_matches(selected_rank, group_key):
+                if not selected_rank:
+                    return group_key.startswith("SINTA_") or group_key == "NON_SINTA"
+                sr = selected_rank.strip().lower()
+                if sr in ("non", "nonsinta", "non_sinta", "non-sinta"):
+                    return group_key == "NON_SINTA"
+                if sr.isdigit():
+                    return group_key == f"SINTA_{sr}"
+                return False
+
+            # First pass to collect snippets for analysis
+            for rank in journals_data:
+                # only consider SINTA groups and NON_SINTA
+                if not (rank.startswith("SINTA_") or rank == "NON_SINTA"):
+                    continue
+                if not group_matches(sinta_rank, rank):
                     continue
                 for journal in journals_data[rank]:
+                    # skip header-like or empty entries
+                    if not journal.get('nama_jurnal'):
+                        continue
                     journal['sinta_rank'] = rank
-                    yield f"data: Mencari di {journal['nama_jurnal']}...\n\n"
+                    yield f"data: Mencari di {journal['nama_jurnal']} ({rank})...\n\n"
                     results = searcher.search_google(topic, journal)
                     all_results.extend(results)
-                    snippets.extend([r['snippet'] for r in results])
+                    snippets.extend([r.get('snippet', '') for r in results])
                     time.sleep(1)
         
         # Build lexical chains and calculate relevance
@@ -172,6 +222,35 @@ def search():
             yield "data: DONE\n\n"
 
     return Response(generate(), mimetype='text/event-stream')
+
+@app.route('/journals', methods=['GET'])
+def journals():
+    # prefer generated JSON from list.html, fallback to original
+    data = None
+    for filename in ('list_journal_from_list_html.json', 'list_journal.json'):
+        try:
+            with open(filename, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            break
+        except FileNotFoundError:
+            continue
+
+    if data is None:
+        return jsonify({'error': 'No journal JSON found'}), 404
+
+    ordered = []
+    for i in range(1, 7):
+        k = f'SINTA_{i}'
+        if k in data:
+            ordered.append(k)
+    if 'NON_SINTA' in data:
+        ordered.append('NON_SINTA')
+
+    result = {'catatan': data.get('catatan', '')}
+    for k in ordered:
+        result[k] = data.get(k, [])
+
+    return jsonify(result)
 
 if __name__ == '__main__':
     app.run(debug=True)

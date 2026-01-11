@@ -8,21 +8,41 @@
 </head>
 <body class="min-h-screen flex flex-col items-center justify-center p-6">
     <div class="w-full max-w-5xl">
-        <h1 class="text-3xl font-bold mb-6 text-center text-gray-700 animate-pulse">🔍 Pencarian PDF Jurnal Indonesia</h1>
-        <form id="search-form" class="mb-6 bg-white p-6 rounded-lg shadow-md">
-            <input name="topic" type="text" placeholder="Masukkan kata kunci topik..." required
-                   class="w-full p-3 border border-gray-300 rounded mb-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
-            <select name="sinta_rank" class="w-full p-3 border border-gray-300 rounded mb-3">
-                <option value="">Semua Peringkat SINTA</option>
-                <option value="1">SINTA 1</option>
-                <option value="2">SINTA 2</option>
-                <option value="3">SINTA 3</option>
-            </select>
-            <button type="submit"
-                    class="w-full bg-blue-500 text-white p-3 rounded hover:bg-blue-600 transition">
-                Cari PDF
-            </button>
+        <h1 class="text-3xl font-bold mb-2 text-center text-gray-800">🔍 Pencarian PDF Jurnal Indonesia</h1>
+        <p class="text-center text-sm text-gray-500 mb-6">Cari PDF artikel dari jurnal terdaftar berdasarkan SINTA. Pilih sumber lalu tekan "Cari PDF".</p>
+
+        <form id="search-form" class="mb-4 bg-white p-6 rounded-lg shadow-md grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
+            <div class="md:col-span-2">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Topik</label>
+                <input name="topic" type="text" placeholder="Masukkan kata kunci topik..." required
+                       class="w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Filter SINTA</label>
+                <select name="sinta_rank" class="w-full p-3 border border-gray-300 rounded">
+                    <option value="">Semua Peringkat SINTA</option>
+                    <option value="1">SINTA 1</option>
+                    <option value="2">SINTA 2</option>
+                    <option value="3">SINTA 3</option>
+                    <option value="4">SINTA 4</option>
+                    <option value="5">SINTA 5</option>
+                    <option value="6">SINTA 6</option>
+                    <option value="non">Non SINTA</option>
+                </select>
+            </div>
+
+            <div class="flex items-center space-x-3">
+                <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-green-500 text-white p-3 rounded shadow">Cari PDF</button>
+                <button type="button" id="toggle-journal-list-btn" class="w-full bg-gray-100 text-gray-800 p-3 rounded border">Tampilkan/ Sembunyikan Daftar Jurnal</button>
+            </div>
+
+            <div class="md:col-span-4 flex items-center justify-between mt-2">
+                <div id="selected-count" class="text-sm text-gray-600">Terpilih: <span id="selected-count-number">0</span></div>
+                <div id="search-hint" class="text-sm text-gray-500">Gunakan checkbox untuk memilih sumber (semua / kategori / satu per satu)</div>
+            </div>
         </form>
+
         
 
         <div id="loading" class="hidden text-center">
@@ -32,6 +52,26 @@
         </div>
 
         <div id="results" class="mt-6 overflow-x-auto"></div>
+
+        <!-- Collapsible journal panel below results -->
+        <div id="journal-panel" class="mt-6 bg-white rounded-lg shadow-md overflow-hidden transition-all">
+            <div class="p-4 border-b flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <label class="text-sm"><input type="checkbox" id="select-all-sources" class="mr-2">Pilih semua</label>
+                    <h3 class="text-lg font-semibold">Daftar Jurnal menurut SINTA</h3>
+                    <span id="panel-badge" class="ml-2 inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">0 sumber</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <button id="collapse-btn" class="text-sm text-gray-600 px-3 py-1 rounded bg-gray-100">Sembunyikan</button>
+                </div>
+            </div>
+            <div id="journal-panel-body" class="p-4">
+                <div id="journal-tab-buttons" class="flex flex-wrap gap-2 mb-3"></div>
+                <div id="journal-list">
+                    <p class="text-sm text-gray-500">Memuat daftar jurnal...</p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -40,14 +80,210 @@
         const log = document.getElementById('log');
         const results = document.getElementById('results');
 
+        // Fetch journals and render SINTA tabs on page load
+        let journalsData = {};
+        let selectedSources = new Map();
+        let totalSourcesCount = 0;
+
+        async function fetchJournals() {
+            try {
+                const res = await fetch('/journals');
+                if (!res.ok) throw new Error('Gagal memuat daftar jurnal');
+                const data = await res.json();
+                journalsData = data;
+
+                // calculate total sources
+                totalSourcesCount = 0;
+                const ordered = [];
+                for (let i = 1; i <= 6; i++) {
+                    const k = `SINTA_${i}`;
+                    if (data[k]) { ordered.push(k); totalSourcesCount += data[k].length; }
+                }
+                if (data['NON_SINTA']) { ordered.push('NON_SINTA'); totalSourcesCount += data['NON_SINTA'].length; }
+
+                const btnsDiv = document.getElementById('journal-tab-buttons');
+                btnsDiv.innerHTML = '';
+
+                ordered.forEach((k, idx) => {
+                    const count = data[k] ? data[k].length : 0;
+
+                    const wrapper = document.createElement('div');
+                    wrapper.className = 'flex items-center space-x-2';
+
+                    const gcb = document.createElement('input');
+                    gcb.type = 'checkbox';
+                    gcb.className = 'group-checkbox';
+                    gcb.dataset.key = k;
+                    gcb.addEventListener('change', () => { toggleGroupSelection(k, gcb.checked, data[k] || []); updateGroupCheckboxStates(); renderCurrentTable(); updateSelectedCount(); });
+
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'px-3 py-1 rounded ' + (idx === 0 ? 'bg-blue-500 text-white' : 'bg-gray-100');
+                    const label = k === 'NON_SINTA' ? 'Non SINTA' : k.replace('_', ' ');
+                    btn.innerHTML = `${label} <span class="ml-2 text-sm text-gray-700">(${count})</span>`;
+                    btn.addEventListener('click', () => {
+                        Array.from(btnsDiv.querySelectorAll('button')).forEach(b => b.className = b === btn ? 'px-3 py-1 rounded bg-blue-500 text-white' : 'px-3 py-1 rounded bg-gray-100');
+                        renderJournalsTable(k, data[k] || []);
+                    });
+
+                    wrapper.appendChild(gcb);
+                    wrapper.appendChild(btn);
+                    btnsDiv.appendChild(wrapper);
+                });
+
+                document.getElementById('select-all-sources').addEventListener('change', (e) => {
+                    const checked = e.target.checked;
+                    ordered.forEach(k => {
+                        toggleGroupSelection(k, checked, data[k] || []);
+                    });
+                    updateGroupCheckboxStates();
+                    renderCurrentTable();
+                    updateSelectedCount();
+                });
+
+                if (ordered.length) renderJournalsTable(ordered[0], data[ordered[0]] || []);
+                else document.getElementById('journal-list').innerHTML = '<p class="text-sm text-gray-500">Tidak ada data jurnal.</p>';
+
+                updateSelectedCount();
+                updateGroupCheckboxStates();
+                updatePanelBadge();
+
+            } catch (err) {
+                document.getElementById('journal-list').innerHTML = `<p class="text-red-500">${err.message}</p>`;
+            }
+        }
+
+        function toggleGroupSelection(groupKey, checked, list) {
+            list.forEach((j, i) => {
+                const id = j.link || `${groupKey}::${i}`;
+                if (checked) {
+                    selectedSources.set(id, { nama_jurnal: j.nama_jurnal || '', link: j.link || '', sinta_rank: groupKey });
+                } else {
+                    selectedSources.delete(id);
+                }
+            });
+        }
+
+        function updateGroupCheckboxStates() {
+            document.querySelectorAll('.group-checkbox').forEach(cb => {
+                const key = cb.dataset.key;
+                const list = journalsData[key] || [];
+                const total = list.length;
+                const selected = list.reduce((acc, j, i) => acc + (selectedSources.has(j.link || `${key}::${i}`) ? 1 : 0), 0);
+                cb.checked = total > 0 && selected === total;
+                cb.indeterminate = selected > 0 && selected < total;
+            });
+            document.getElementById('select-all-sources').checked = selectedSources.size > 0 && selectedSources.size === totalSourcesCount && totalSourcesCount > 0;
+        }
+
+        function renderCurrentTable() {
+            // find active button
+            const activeBtn = document.querySelector('#journal-tab-buttons button.bg-blue-500');
+            if (activeBtn) {
+                const key = activeBtn.parentElement.querySelector('.group-checkbox').dataset.key;
+                renderJournalsTable(key, journalsData[key] || []);
+            }
+        }
+
+        function renderJournalsTable(key, list) {
+            const container = document.getElementById('journal-list');
+            if (!list || list.length === 0) {
+                container.innerHTML = '<p class="text-sm text-gray-500">Tidak ada jurnal di kategori ini.</p>';
+                return;
+            }
+            let html = `
+                <table class="min-w-full bg-white shadow rounded-lg">
+                    <thead class="bg-gray-100">
+                        <tr>
+                            <th class="py-2 px-4 text-left">Pilih</th>
+                            <th class="py-2 px-4 text-left">No</th>
+                            <th class="py-2 px-4 text-left">Nama Jurnal</th>
+                            <th class="py-2 px-4 text-left">Link</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+            list.forEach((j, i) => {
+                const id = j.link || `${key}::${i}`;
+                const checked = selectedSources.has(id) ? 'checked' : '';
+                html += `
+                    <tr class="border-b hover:bg-gray-50">
+                        <td class="py-2 px-4"><input type="checkbox" class="journal-checkbox" data-id="${id}" data-link="${j.link || ''}" data-name="${j.nama_jurnal || ''}" data-sinta="${key}" ${checked}></td>
+                        <td class="py-2 px-4">${i + 1}</td>
+                        <td class="py-2 px-4">${j.nama_jurnal || ''}</td>
+                        <td class="py-2 px-4">${j.link ? `<a href="${j.link}" target="_blank" class="text-blue-500 hover:underline">${j.link}</a>` : '<span class="text-gray-500">-</span>'}</td>
+                    </tr>
+                `;
+            });
+            html += `</tbody></table>`;
+            container.innerHTML = html;
+
+            // attach handlers
+            document.querySelectorAll('.journal-checkbox').forEach(cb => {
+                cb.addEventListener('change', () => {
+                    const id = cb.dataset.id;
+                    const name = cb.dataset.name;
+                    const link = cb.dataset.link;
+                    const sinta = cb.dataset.sinta;
+                    if (cb.checked) {
+                        selectedSources.set(id, { nama_jurnal: name, link: link, sinta_rank: sinta });
+                    } else {
+                        selectedSources.delete(id);
+                    }
+                    updateSelectedCount();
+                    updateGroupCheckboxStates();
+                });
+            });
+        }
+
+        function updateSelectedCount() {
+            const num = selectedSources.size;
+            const span = document.getElementById('selected-count-number');
+            if (span) span.innerText = num;
+            else document.getElementById('selected-count').textContent = `Terpilih: ${num}`;
+            // update panel badge to show total and selected
+            const badge = document.getElementById('panel-badge');
+            if (badge) {
+                const total = totalSourcesCount || 0;
+                badge.textContent = `${total} sumber • ${num} terpilih`;
+            }
+        }
+
+        // start loading tabs
+        fetchJournals();
+
+        // collapse/expand panel
+        const collapseBtn = document.getElementById('collapse-btn');
+        const panel = document.getElementById('journal-panel');
+        const panelBody = document.getElementById('journal-panel-body');
+        collapseBtn && collapseBtn.addEventListener('click', () => {
+            const hidden = panel.classList.toggle('collapsed');
+            collapseBtn.textContent = hidden ? 'Tampilkan' : 'Sembunyikan';
+            panelBody.style.display = hidden ? 'none' : 'block';
+        });
+
+        // connect top toggle button too
+        const topToggle = document.getElementById('toggle-journal-list-btn');
+        topToggle && topToggle.addEventListener('click', () => collapseBtn.click());
+
+        // update panel badge helper
+        function updatePanelBadge() {
+            const badge = document.getElementById('panel-badge');
+            badge.textContent = `${totalSourcesCount} sumber`;
+        }
+        // ensure badge updates after fetch
+        setTimeout(updatePanelBadge, 300);
+
         form.addEventListener('submit', e => {
             e.preventDefault();
             loading.classList.remove('hidden');
             log.innerHTML = '';
             results.innerHTML = '';
 
-            const formData = new FormData(form);
-            fetch('/search', {
+            const formData = new FormData(form);                // include selected sources if any
+                if (typeof selectedSources !== 'undefined' && selectedSources.size > 0) {
+                    formData.append('sources_json', JSON.stringify(Array.from(selectedSources.values())));
+                }            fetch('/search', {
                 method: 'POST',
                 body: formData
             }).then(response => {
@@ -87,7 +323,13 @@
         });
 
         function renderTable(articles) {
-            let html = `
+            const totalSources = selectedSources.size || totalSourcesCount || 0;
+            let header = `<div class="mb-3 flex items-center justify-between">
+                            <div class="text-sm text-gray-600">Menampilkan <strong>${articles.length}</strong> hasil</div>
+                            <div class="text-sm text-gray-600">Sumber terpilih: <strong>${selectedSources.size}</strong> / ${totalSources}</div>
+                          </div>`;
+
+            let html = header + `
                 <table class="min-w-full bg-white shadow rounded-lg">
                     <thead class="bg-gray-100">
                         <tr>

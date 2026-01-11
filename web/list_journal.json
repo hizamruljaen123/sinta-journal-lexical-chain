@@ -1,149 +1,753 @@
 {
-    "catatan": "Daftar contoh jurnal bidang Informatika, Teknologi, Sains, Sistem Informasi, Ilmu Komputer berdasarkan peringkat SINTA. Status akreditasi dan URL dapat berubah. Verifikasi di sinta.kemdikbud.go.id. Gunakan secara etis untuk scraping.",
-    "SINTA_1": [
-      {
-        "nama_jurnal": "Indonesian Journal of Electrical Engineering and Computer Science (IJEECS)",
-        "link": "ijeecs.iaescore.com"
-      },
-      {
-        "nama_jurnal": "TELKOMNIKA (Telecommunication Computing Electronics and Control)",
-        "link": "telkomnika.uad.ac.id/"
-      },
-      {
-        "nama_jurnal": "International Journal on Electrical Engineering and Informatics (IJEEI)",
-        "link": "ijeei.org/"
-      },
-      {
-        "nama_jurnal": "Journal of ICT Research and Applications (Institut Teknologi Bandung)",
-        "link": "journals.itb.ac.id"
-      },
-      {
-        "nama_jurnal": "Indonesian Journal of Science & Technology (IJoST) (Universitas Pendidikan Indonesia)",
-        "link": "ejournal.upi.edu"
-      }
-    ],
-    "SINTA_2": [
-      {
-        "nama_jurnal": "Jurnal RESTI (Rekayasa Sistem dan Teknologi Informasi)",
-        "link": "jurnal.iaii.or.id"
-      },
-      {
-        "nama_jurnal": "Kinetik: Game Technology, Information System, Computer Network, Computing, Electronics, and Control (Universitas Muhammadiyah Malang)",
-        "link": "kinetik.umm.ac.id"
-      },
-      {
-        "nama_jurnal": "IJCCS (Indonesian Journal of Computing and Cyber Systems) (Universitas Gadjah Mada)",
-        "link": "jurnal.ugm.ac.id"
-      },
-      {
-        "nama_jurnal": "Jurnal Ilmu Komputer dan Informasi (Journal of Computer Science and Information) - JIKI (Universitas Indonesia)",
-        "link": "jiki.cs.ui.ac.id"
-      },
-      {
-        "nama_jurnal": "JUITA (Jurnal Informatika) (Universitas Atma Jaya Yogyakarta)",
-        "link": "e-journal.uajy.ac.id"
-      },
-      {
-        "nama_jurnal": "CommIT (Communication & Information Technology) Journal (Universitas Bina Nusantara)",
-        "link": "journal.binus.ac.id"
-      },
-      {
-        "nama_jurnal": "Jurnal Teknologi dan Sistem Komputer (JTSiskom) (Universitas Diponegoro)",
-        "link": "jtsiskom.undip.ac.id"
-      },
-      {
-        "nama_jurnal": "ILKOM Jurnal Ilmiah (Universitas Brawijaya)",
-        "link": "ilkom.ub.ac.id"
-      },
-      {
-        "nama_jurnal": "Khazanah Informatika: Jurnal Ilmu Komputer dan Informatika (Universitas Muhammadiyah Surakarta)",
-        "link": "journals.ums.ac.id"
-      },
-      {
-        "nama_jurnal": "JTIIK (Jurnal Teknologi Informasi dan Ilmu Komputer) (Universitas Brawijaya)",
-        "link": "jtiik.ub.ac.id"
-      },
-      {
-        "nama_jurnal": "IJISTECH (International Journal of Information System and Technology)",
-        "link": "ijistech.org"
-      }, 
-      {
-        "nama_jurnal": "Jurnal Nasional Pendidikan Teknik Informatika (JANAPATI) (Universitas Pendidikan Ganesha)",
-        "link": "ejournal.undiksha.ac.idi"
-      },
-      {
-        "nama_jurnal": "MATICS: Jurnal Ilmu Komputer dan Teknologi Informasi (Universitas Islam Negeri Alauddin Makassar)",
-        "link": "journal.uin-alauddin.ac.id"
-      },
-      {
-        "nama_jurnal": "Sinkron: Jurnal dan Penelitian Teknik Informatika (Universitas Nusa Mandiri)",
-        "link": "jurnal.ulb.ac.id"
-      },
-      {
-        "nama_jurnal": "Register: Jurnal Ilmiah Teknologi Sistem Informasi (Universitas Trunojoyo Madura)",
-        "link": "journal.trunojoyo.ac.id"
-      }
-    ],
-    "SINTA_3": [
-      {
-        "nama_jurnal": "Jurnal Teknoinfo (Universitas Lampung)",
-        "link": "jurnal.fmipa.unila.ac.id"
-      },
-      {
-        "nama_jurnal": "Jurnal Nasional Teknik Elektro dan Teknologi Informasi (JNTETI) (Universitas Gadjah Mada)",
-        "link": "jurnal.ugm.ac.id"
-      },
-      {
-        "nama_jurnal": "J-SAKTI (Jurnal Sains Komputer dan Informatika) (UIN Sultan Syarif Kasim Riau)",
-        "link": "ejournal.uin-suska.ac.id"
-      },
-      {
-        "nama_jurnal": "SISFO (Jurnal Sistem Informasi) (STMIK Pontianak)",
-        "link": "ejournal.stmik-pontianak.ac.id"
-      },
-      {
-        "nama_jurnal": "Jurnal Informatika Universitas Pamulang (Universitas Pamulang)",
-        "link": "openjournal.unpam.ac.id"
-      },
-      {
-        "nama_jurnal": "JOIN (Jurnal Online Informatika) (Universitas Nusa Cendana)",
-        "link": "join.if.undana.ac.id"
-      },
-      {
-        "nama_jurnal": "Jurnal Informatika UPGRIS (Universitas PGRI Semarang)",
-        "link": "journal.upgris.ac.id"
-      },
-      {
-        "nama_jurnal": "JUSTIN (Jurnal Sistem dan Teknologi Informasi) (Universitas Singaperbangsa Karawang)",
-        "link": "journal.unsika.ac.id"
-      },
-      {
-        "nama_jurnal": "INTENSIF: Jurnal Ilmiah Penelitian dan Penerapan Teknologi Sistem Informasi",
-        "link": "intensif.org"
-      },
-      {
-        "nama_jurnal": "Simetris: Jurnal Teknik Mesin, Elektro dan Ilmu Komputer (Universitas Muria Kudus)",
-        "link": "jurnal.umk.ac.id"
-      },
-      {
-        "nama_jurnal": "Creative Information Technology Journal (CITEC Journal)",
-        "link": "journal.stmik-amikbandung.ac.id"
-      },
-      {
-        "nama_jurnal": "Jurnal SITEKIN: Jurnal Sains, Teknologi dan Industri (UIN Imam Bonjol Padang)",
-        "link": "ejournal.uinib.ac.id"
-      },
-      {
-        "nama_jurnal": "Explore: Jurnal Sistem Informasi dan Telematika (STMIK Pontianak)",
-        "link": "ejournal.stmik-pontianak.ac.id"
-      },
-      {
-        "nama_jurnal": "Jutisi: Jurnal Ilmiah Teknik Informatika dan Sistem Informasi (Universitas Islam Negeri Sultan Syarif Kasim Riau)",
-        "link": "ejournal.uin-suska.ac.id"
-      },
-      {
-        "nama_jurnal": "Jurnal Riset Komputer (JURIKOM)",
-        "link": "jurikom.iocscience.org"
-      }
-    ]
-  }
+  "catatan": "Daftar jurnal diekstrak dari list.html. Verifikasi SINTA di sinta.kemdikbud.go.id sebelum pakai.",
+  "SINTA_1": [
+    {
+      "nama_jurnal": "International Journal of Electrical and Computer Engineering",
+      "link": "http://ijece.iaescore.com/index.php/IJECE"
+    },
+    {
+      "nama_jurnal": "Indonesian Journal of Electrical Engineering and Computer Science",
+      "link": "http://ijeecs.iaescore.com/index.php/IJEECS"
+    },
+    {
+      "nama_jurnal": "Indonesian Journal of Electrical Engineering and Informatics",
+      "link": "http://section.iaesonline.com/index.php/IJEEI/index"
+    },
+    {
+      "nama_jurnal": "Bulletin of Electrical Engineering and Informatics",
+      "link": "http://beei.org/index.php/EEI"
+    },
+    {
+      "nama_jurnal": "IJAIN (International Journal of Advances in Intelligent Informatics)",
+      "link": "http://ijain.org/index.php/IJAIN"
+    },
+    {
+      "nama_jurnal": "JOIV: International Journal on Informatics Visualization",
+      "link": "http://joiv.org/"
+    },
+    {
+      "nama_jurnal": "International Journal on Electrical Engineering and Informatics",
+      "link": "http://www.ijeei.org/"
+    },
+    {
+      "nama_jurnal": "International Journal on Advanced Science, Engineering and Information Technology (IJASEIT)",
+      "link": "http://ijaseit.insightsociety.org/"
+    },
+    {
+      "nama_jurnal": "Communications In Science And Technology",
+      "link": "https://cst.kipmi.or.id/journal"
+    },
+    {
+      "nama_jurnal": "Register: Jurnal Ilmiah Teknologi Sistem Informasi",
+      "link": "http://www.journal.unipdu.ac.id/index.php/register/index"
+    },
+    {
+      "nama_jurnal": "Journal of Information Systems Engineering and Business Intelligence",
+      "link": "http://e-journal.unair.ac.id/index.php/JISEBI/issue/archive"
+    },
+    {
+      "nama_jurnal": "CommIT (Communication and Information Technology) Journal",
+      "link": "https://journal.binus.ac.id/index.php/commit/index"
+    }
+  ],
+  "SINTA_2": [
+    {
+      "nama_jurnal": "INTENSIF: Jurnal Ilmiah Penelitian dan Penerapan Teknologi Sistem Informasi",
+      "link": "http://ojs.unpkediri.ac.id/index.php/intensif"
+    },
+    {
+      "nama_jurnal": "Lontar Komputer: Jurnal Ilmiah Teknologi Informasi",
+      "link": "https://ojs.unud.ac.id/index.php/lontar"
+    },
+    {
+      "nama_jurnal": "BACA: Jurnal Dokumentasi dan Informasi",
+      "link": "http://jurnalbaca.pdii.lipi.go.id/"
+    },
+    {
+      "nama_jurnal": "Jurnal Teknologi Informasi dan Ilmu Komputer",
+      "link": "http://jtiik.ub.ac.id/index.php/jtiik"
+    },
+    {
+      "nama_jurnal": "Jurnal RESTI (Rekayasa Sistem dan Teknologi Informasi)",
+      "link": "http://jurnal.iaii.or.id/index.php/RESTI"
+    },
+    {
+      "nama_jurnal": "JNTETI (Jurnal Nasional Teknik Elektro dan Teknologi Informasi)",
+      "link": "https://jurnal.ugm.ac.id/v3/JNTETI"
+    },
+    {
+      "nama_jurnal": "JSINBIS (Jurnal Sistem Informasi Bisnis)",
+      "link": "https://ejournal.undip.ac.id/index.php/jsinbis"
+    },
+    {
+      "nama_jurnal": "Jurnal Ilmu Komputer dan Informasi",
+      "link": "http://jiki.cs.ui.ac.id/index.php/jiki"
+    },
+    {
+      "nama_jurnal": "JOIN (Jurnal Online Informatika)",
+      "link": "http://join.if.uinsgd.ac.id/index.php/join"
+    },
+    {
+      "nama_jurnal": "JUITA: Jurnal Informatika",
+      "link": "http://jurnalnasional.ump.ac.id/index.php/JUITA/index"
+    },
+    {
+      "nama_jurnal": "Khazanah Informatika: Jurnal Ilmu Komputer dan Informatika",
+      "link": "https://journals2.ums.ac.id/index.php/khif/"
+    },
+    {
+      "nama_jurnal": "Matrik: Jurnal Manajemen, Teknik Informatika, dan Rekayasa Komputer",
+      "link": "https://journal.universitasbumigora.ac.id/index.php/matrik"
+    },
+    {
+      "nama_jurnal": "Jurnal Ilmiah Teknik Elektro Komputer dan Informatika (JITEKI)",
+      "link": "http://journal.uad.ac.id/index.php/JITEKI/"
+    },
+    {
+      "nama_jurnal": "Jurnal Penelitian Pos dan Informatika",
+      "link": "https://jurnal-ppi.kominfo.go.id/index.php/jppi/index"
+    },
+    {
+      "nama_jurnal": "Jurnal Teknologi dan Sistem Komputer",
+      "link": "https://jtsiskom.undip.ac.id/index.php/jtsiskom/index"
+    },
+    {
+      "nama_jurnal": "Kinetik: Game Technology, Information System, Computer Network, Computing, Electronics, and Control",
+      "link": "http://kinetik.umm.ac.id/index.php/kinetik/index"
+    },
+    {
+      "nama_jurnal": "ComTech: Computer, Mathematics and Engineering Applications",
+      "link": "https://journal.binus.ac.id/index.php/comtech/index"
+    },
+    {
+      "nama_jurnal": "Bulletin of Social Informatics Theory and Application",
+      "link": "https://pubs.ascee.org/index.php/businta/index"
+    },
+    {
+      "nama_jurnal": "Scientific Journal of Informatics",
+      "link": "https://journal.unnes.ac.id/nju/index.php/sji/index"
+    },
+    {
+      "nama_jurnal": "Elinvo (Electronics, Informatics, and Vocational Education)",
+      "link": "https://journal.uny.ac.id/index.php/elinvo"
+    },
+    {
+      "nama_jurnal": "IJCCS (Indonesian Journal of Computing and Cybernetics Systems)",
+      "link": "https://jurnal.ugm.ac.id/ijccs"
+    },
+    {
+      "nama_jurnal": "IJEIS (Indonesian Journal of Electronics and Instrumentation Systems)",
+      "link": "https://jurnal.ugm.ac.id/ijeis"
+    },
+    {
+      "nama_jurnal": "JITK (Jurnal Ilmu Pengetahuan dan Teknologi Komputer)",
+      "link": "http://bit.ly/j-jitk"
+    },
+    {
+      "nama_jurnal": "JANAPATI: Jurnal Nasional Pendidikan Teknik Informatika",
+      "link": "http://bit.ly/j-janapati"
+    }
+  ],
+  "SINTA_3": [
+    {
+      "nama_jurnal": "Jurnal Sistem Informasi (Journal of Information System)",
+      "link": "http://jsi.cs.ui.ac.id/index.php/jsi"
+    },
+    {
+      "nama_jurnal": "SIMETRIS: Jurnal Teknik Mesin, Elektro dan Ilmu Komputer",
+      "link": "http://bit.ly/j-simet"
+    },
+    {
+      "nama_jurnal": "INFORMATIKA: Jurnal Pengembangan IT",
+      "link": "http://bit.ly/j-informatika"
+    },
+    {
+      "nama_jurnal": "JTI (Jurnal Teknik Informatika)",
+      "link": "http://bit.ly/j-ti"
+    },
+    {
+      "nama_jurnal": "SISFOKOM (Sistem Informasi dan Komputer)",
+      "link": "http://bit.ly/j-sisfokom"
+    },
+    {
+      "nama_jurnal": "INFOTEKJAR: Jurnal Nasional Informatika dan Teknologi Jaringan",
+      "link": "http://bit.ly/j-infotekjar"
+    },
+    {
+      "nama_jurnal": "TEKNOSI: Jurnal Nasional Teknologi dan Sistem Informasi",
+      "link": "https://teknosi.fti.unand.ac.id/index.php/teknosi"
+    },
+    {
+      "nama_jurnal": "AKSI (Akuntansi dan Sistem Informasi)",
+      "link": "http://bit.ly/j-aksi"
+    },
+    {
+      "nama_jurnal": "JMIB (Jurnal Media Informatika Budidarma)",
+      "link": "http://bit.ly/j-mib"
+    },
+    {
+      "nama_jurnal": "SISTEMASI: Jurnal Sistem Informasi",
+      "link": "http://bit.ly/j-stmsi"
+    },
+    {
+      "nama_jurnal": "SAINTEK: Jurnal Pendidikan Informatika dan Sains",
+      "link": "http://bit.ly/j-saintek"
+    },
+    {
+      "nama_jurnal": "SINKRON: Jurnal dan Penelitian Teknik Informatika",
+      "link": "http://bit.ly/j-sinkron"
+    },
+    {
+      "nama_jurnal": "INOVTEK",
+      "link": "http://bit.ly/j-isi"
+    },
+    {
+      "nama_jurnal": "KOMPUTIKA: Jurnal Sistem Komputer",
+      "link": "http://bit.ly/j-komputika"
+    },
+    {
+      "nama_jurnal": "MATRIX: Jurnal Manajemen Teknologi dan Informatika",
+      "link": "http://bit.ly/j-jmatrix"
+    },
+    {
+      "nama_jurnal": "JURTEKSI (Jurnal Teknologi dan Sistem Informasi)",
+      "link": "http://bit.ly/j-jurteksi"
+    },
+    {
+      "nama_jurnal": "JIM (Jurnal Ilmiah Ilmu Komputer)",
+      "link": "http://bit.ly/j-jim"
+    },
+    {
+      "nama_jurnal": "JBI (Jurnal Buana Informatika)",
+      "link": "http://bit.ly/j-jbi"
+    },
+    {
+      "nama_jurnal": "INCOMTECH: Jurnal Telekomunikasi dan Komputer",
+      "link": "http://bit.ly/j-incomtech"
+    },
+    {
+      "nama_jurnal": "ELTIKOM: Jurnal Teknik Elektro, Teknologi Informasi dan Komputer",
+      "link": "http://bit.ly/j-eltikom"
+    },
+    {
+      "nama_jurnal": "TELEMATIKA: Jurnal Informatika dan Teknologi Informasi",
+      "link": "http://bit.ly/j-jjkt"
+    },
+    {
+      "nama_jurnal": "JIFO: Jurnal Informatika",
+      "link": "http://bit.ly/j-jifo"
+    },
+    {
+      "nama_jurnal": "EKSPLORA",
+      "link": "http://bit.ly/j-eksplora"
+    },
+    {
+      "nama_jurnal": "PILAR: Journal of Computing and Information System",
+      "link": "https://ejournal.nusamandiri.ac.id/index.php/pilar"
+    },
+    {
+      "nama_jurnal": "Petir: Jurnal Pengkajian dan Penerapan Teknik Informatika",
+      "link": "https://stt-pln.e-journal.id/petir/issue/view/1"
+    },
+    {
+      "nama_jurnal": "JIPI (Jurnal Ilmiah Penelitian dan Pembelajaran Informatika)",
+      "link": "https://jurnal.stkippgritulungagung.ac.id/index.php/jipi/index"
+    },
+    {
+      "nama_jurnal": "JISKA (Jurnal Informatika Sunan Kalijaga)",
+      "link": "http://ejournal.uin-suka.ac.id/saintek/index.php/JISKA"
+    },
+    {
+      "nama_jurnal": "Edumatic: Jurnal Pendidikan Informatika",
+      "link": "http://e-journal.hamzanwadi.ac.id/index.php/edumatic"
+    },
+    {
+      "nama_jurnal": "JuTISI (Jurnal Teknik Informatika dan Sistem Informasi)",
+      "link": "https://journal.maranatha.edu/index.php/jutisi"
+    },
+    {
+      "nama_jurnal": "Jurnal Informatika dan Rekayasa Perangkat Lunak",
+      "link": "https://publikasiilmiah.unwahas.ac.id/index.php/JINRPL"
+    },
+    {
+      "nama_jurnal": "Krea-TIF: Jurnal Teknik Informatika",
+      "link": "http://ejournal.uika-bogor.ac.id/index.php/krea-tif"
+    },
+    {
+      "nama_jurnal": "Ultimatics : Jurnal Teknik Informatika",
+      "link": "http://ejournals.umn.ac.id/index.php/TI/"
+    },
+    {
+      "nama_jurnal": "Jurnal CoreIT: Jurnal Hasil Penelitian Ilmu Komputer dan Teknologi Informasi",
+      "link": "http://ejournal.uin-suska.ac.id/index.php/coreit"
+    },
+    {
+      "nama_jurnal": "JUSIFO : Jurnal Sistem Informasi",
+      "link": "http://jurnal.radenfatah.ac.id/index.php/jusifo"
+    },
+    {
+      "nama_jurnal": "Ultima InfoSys : Jurnal Ilmu Sistem Informasi",
+      "link": "http://ejournals.umn.ac.id/index.php/SI/"
+    },
+    {
+      "nama_jurnal": "Journal of Information Systems and Informatics",
+      "link": "http://journal-isi.org/index.php/isi"
+    },
+    {
+      "nama_jurnal": "Jurnal Teknologi dan Manajemen Informatika",
+      "link": "http://jurnal.unmer.ac.id/index.php/jtmi/index"
+    }
+  ],
+  "SINTA_4": [
+    {
+      "nama_jurnal": "JRI (Jurnal Riset Informatika)",
+      "link": "http://bit.ly/j-jri"
+    },
+    {
+      "nama_jurnal": "JKT (Jurnal Komputer Terapan)",
+      "link": "http://bit.ly/j-jkt"
+    },
+    {
+      "nama_jurnal": "Jurnal Teknik Informatika C.I.T. Medicom",
+      "link": "http://medikom.iocspublisher.org/index.php/JTI"
+    },
+    {
+      "nama_jurnal": "Jurnal Informatika Universitas Pamulan",
+      "link": "http://openjournal.unpam.ac.id/index.php/informatika"
+    },
+    {
+      "nama_jurnal": "Jurnal Sains dan Informatika",
+      "link": "https://jsi.politala.ac.id/index.php/JSI"
+    },
+    {
+      "nama_jurnal": "JIRE (Jurnal Informatika dan Rekayasa Elektronik)",
+      "link": "https://e-journal.stmiklombok.ac.id/index.php/jire/issue/archive"
+    },
+    {
+      "nama_jurnal": "Jurnal Manajemen Informatika (JAMIKA)",
+      "link": "https://ojs.unikom.ac.id/index.php/jamika"
+    },
+    {
+      "nama_jurnal": "Jurnal Informatika",
+      "link": "http://ejournal.bsi.ac.id/ejurnal/index.php/ji"
+    },
+    {
+      "nama_jurnal": "Jurnal Khatulistiwa Informatika",
+      "link": "https://ejournal.bsi.ac.id/ejurnal/index.php/khatulistiwa"
+    },
+    {
+      "nama_jurnal": "Jurnal Sistem dan Informatika (JSI)",
+      "link": "https://jsi.stikom-bali.ac.id/index.php/jsi/index"
+    },
+    {
+      "nama_jurnal": "Syntax : Jurnal Informatika",
+      "link": "http://journal.unsika.ac.id/index.php/syntax/index"
+    },
+    {
+      "nama_jurnal": "J-SAKTI (Jurnal Sains Komputer dan Informatika)",
+      "link": "http://tunasbangsa.ac.id/ejurnal/index.php/jsakti"
+    },
+    {
+      "nama_jurnal": "JURNAL INFORMATIKA GLOBAL",
+      "link": "http://ejournal.uigm.ac.id/index.php/IG"
+    },
+    {
+      "nama_jurnal": "JPGI (Jurnal Penelitian Guru Indonesia)",
+      "link": "http://jurnal.iicet.org/index.php/jpgi"
+    },
+    {
+      "nama_jurnal": "Jurnal Infomedia : Teknik Informatika, Multimedia, dan Jaringan",
+      "link": "https://e-jurnal.pnl.ac.id/infomedia"
+    },
+    {
+      "nama_jurnal": "JIMP (Jurnal Informatika Merdeka Pasuruan)",
+      "link": "http://ejurnal.unmerpas.ac.id/"
+    },
+    {
+      "nama_jurnal": "Jurnal Teknologi Informatika dan Komputer",
+      "link": "http://journal.thamrin.ac.id/index.php/jtik"
+    },
+    {
+      "nama_jurnal": "JIP (Jurnal Informatika Polinema)",
+      "link": "http://jip.polinema.ac.id/ojs3/index.php/jip"
+    },
+    {
+      "nama_jurnal": "INFOMATEK: Jurnal Informatika, Manajemen dan Teknologi",
+      "link": "http://journal.unpas.ac.id/index.php/infomatek"
+    },
+    {
+      "nama_jurnal": "JISA (Jurnal Informatika dan Sains)",
+      "link": "http://trilogi.ac.id/journal/ks/index.php/JISA"
+    },
+    {
+      "nama_jurnal": "Jurnal Ilmiah Informatika",
+      "link": "https://journal.ibrahimy.ac.id/index.php/JIMI/"
+    },
+    {
+      "nama_jurnal": "Smatika Jurnal : STIKI Informatika Jurnal",
+      "link": "http://jurnal.stiki.ac.id/index.php/SMATIKA"
+    },
+    {
+      "nama_jurnal": "Jurnal Komunika: Jurnal Komunikasi, Media dan Informatika",
+      "link": "https://jurnal.kominfo.go.id/index.php/komunika"
+    },
+    {
+      "nama_jurnal": "Jurnal Informatika",
+      "link": "http://jurnalinformatika.petra.ac.id/"
+    },
+    {
+      "nama_jurnal": "Jurnal Informatika",
+      "link": "https://jurnal.darmajaya.ac.id/index.php/JurnalInformatika/index"
+    },
+    {
+      "nama_jurnal": "JIKO (Jurnal Informatika dan Komputer)",
+      "link": "http://ejournal.akakom.ac.id/index.php/jiko"
+    },
+    {
+      "nama_jurnal": "Jurnal Sains dan Informatika : Research of Science and Informatic",
+      "link": "http://publikasi.lldikti10.id/index.php/jsi/index"
+    },
+    {
+      "nama_jurnal": "Jurnal Komtika (Komputasi dan Informatika)",
+      "link": "http://journal.ummgl.ac.id/index.php/komtika/index"
+    },
+    {
+      "nama_jurnal": "Jurnal Ilmu Komputer",
+      "link": "https://ojs.unud.ac.id/index.php/jik"
+    },
+    {
+      "nama_jurnal": "JUSIM (Jurnal Sistem Informasi Musirawas)",
+      "link": "http://jurnal.univbinainsan.ac.id/index.php/jusim"
+    },
+    {
+      "nama_jurnal": "Jurnal Teknologi Komputer dan Sistem Informasi",
+      "link": "https://jurnal.ftikomibn.ac.id/index.php/jtksi"
+    },
+    {
+      "nama_jurnal": "Jurnal Teknik Komputer AMIK BSI",
+      "link": "https://ejournal.bsi.ac.id/ejurnal/index.php/jtk"
+    },
+    {
+      "nama_jurnal": "Jurnal Teknologi Informatika dan Komputer",
+      "link": "http://journal.thamrin.ac.id/index.php/jtik"
+    },
+    {
+      "nama_jurnal": "Jurnal Sains Komputer dan Teknologi Informasi",
+      "link": "http://journal.umpalangkaraya.ac.id/index.php/jsakti"
+    },
+    {
+      "nama_jurnal": "Progresif: Jurnal Ilmiah Komputer",
+      "link": "http://ojs.stmik-banjarbaru.ac.id/index.php/progresif"
+    },
+    {
+      "nama_jurnal": "Jupiter (Jurnal Penelitian Ilmu dan Teknologi Komputer)",
+      "link": "http://jurnal.polsri.ac.id/index.php/jupiter"
+    },
+    {
+      "nama_jurnal": "JSiI (Jurnal Sistem Informasi)",
+      "link": "http://e-jurnal.lppmunsera.org/index.php/jsii"
+    },
+    {
+      "nama_jurnal": "Manajerial : Jurnal Manajemen dan Sistem Informasi",
+      "link": "https://ejournal.upi.edu/index.php/manajerial/"
+    },
+    {
+      "nama_jurnal": "Rabit : Jurnal Teknologi dan Sistem Informasi Univrab",
+      "link": "http://jurnal.univrab.ac.id/index.php/rabit"
+    },
+    {
+      "nama_jurnal": "JOISIE (Journal Of Information Systems And Informatics Engineering)",
+      "link": "http://www.ejournal.pelitaindonesia.ac.id/ojs32/index.php/JOISIE"
+    },
+    {
+      "nama_jurnal": "Data Science: Journal of Computing and Applied Informatics",
+      "link": "https://talenta.usu.ac.id/JoCAI"
+    },
+    {
+      "nama_jurnal": "(IJAI) Indonesian Journal of Applied Informatics",
+      "link": "https://jurnal.uns.ac.id/ijai"
+    },
+    {
+      "nama_jurnal": "Techno Nusa Mandiri : Journal of Computing and Information Technology",
+      "link": "http://ejournal.nusamandiri.ac.id/index.php/techno"
+    },
+    {
+      "nama_jurnal": "JOINTECS (Journal of Information Technology and Computer Science)",
+      "link": "http://publishing-widyagama.ac.id/ejournal-v2/index.php/jointecs"
+    },
+    {
+      "nama_jurnal": "JOINS (Journal of information System)",
+      "link": "http://publikasi.dinus.ac.id/index.php/joins"
+    },
+    {
+      "nama_jurnal": "SYSTEMIC: Information System and Informatics Journal",
+      "link": "http://jurnalsaintek.uinsby.ac.id/index.php/SYSTEMIC"
+    },
+    {
+      "nama_jurnal": "Jurnal TEKNOINFO",
+      "link": "http://ejurnal.teknokrat.ac.id/index.php/teknoinfo/index"
+    },
+    {
+      "nama_jurnal": "Jurnal Tekno Kompak",
+      "link": "https://ejurnal.teknokrat.ac.id/index.php/teknokompak"
+    },
+    {
+      "nama_jurnal": "KARMAPATI (Kumpulan Artikel Mahasiswa Pendidikan Teknik Informatika)",
+      "link": "https://ejournal.undiksha.ac.id/index.php/KP"
+    },
+    {
+      "nama_jurnal": "JIKO (Jurnal Informatika dan Komputer)",
+      "link": "http://ejournal.unkhair.ac.id/index.php/jiko"
+    },
+    {
+      "nama_jurnal": "Jurnal Teknik Informatika Unika Santo Thomas (JTIUST)",
+      "link": "http://ejournal.ust.ac.id/index.php/JTIUST"
+    },
+    {
+      "nama_jurnal": "Explore: Jurnal Sistem Informasi dan Telematika (Telekomunikasi, Multimedia dan Informatika)",
+      "link": "http://jurnal.ubl.ac.id/index.php/explore"
+    },
+    {
+      "nama_jurnal": "JURNAL INSTEK (Informatika Sains dan Teknologi)",
+      "link": "http://journal.uin-alauddin.ac.id/index.php/instek"
+    },
+    {
+      "nama_jurnal": "JIKA (Jurnal Informatika)",
+      "link": "http://jurnal.umt.ac.id/index.php/jika"
+    },
+    {
+      "nama_jurnal": "Jutisi : Jurnal Ilmiah Teknik Informatika dan Sistem Informasi",
+      "link": "http://ojs.stmik-banjarbaru.ac.id/index.php/jutisi"
+    },
+    {
+      "nama_jurnal": "J-Icon: Jurnal Komputer dan Informatika",
+      "link": "http://ejurnal.undana.ac.id/index.php/jicon"
+    },
+    {
+      "nama_jurnal": "Infotek : Jurnal Informatika dan Teknologi",
+      "link": "http://e-journal.hamzanwadi.ac.id/index.php/infotek"
+    },
+    {
+      "nama_jurnal": "Jurnal Sistem Informasi",
+      "link": "https://ejournal.unsri.ac.id/index.php/jsi"
+    },
+    {
+      "nama_jurnal": "EXPERT: Jurnal Manajemen Sistem Informasi dan Teknologi",
+      "link": "http://jurnal.ubl.ac.id/index.php/expert"
+    },
+    {
+      "nama_jurnal": "JUKANTI:Jurnal Pendidikan Teknologi Informasi",
+      "link": "https://ojs.cbn.ac.id/index.php/jukanti/beranda"
+    },
+    {
+      "nama_jurnal": "TEKNOLOGI: Jurnal Ilmiah Sistem Informasi",
+      "link": "http://www.journal.unipdu.ac.id/index.php/teknologi"
+    },
+    {
+      "nama_jurnal": "SKANIKA: SIstem Komputer & Teknik Informatika",
+      "link": ""
+    },
+    {
+      "nama_jurnal": "Matics: Jurnal Ilmu Komputer dan Teknologi Informasi (Journal of Computer Science and Information Technology)",
+      "link": "http://ejournal.uin-malang.ac.id/index.php/saintek"
+    },
+    {
+      "nama_jurnal": "METHOMIKA: Jurnal Manajemen Informatika dan Komputerisasi Akuntansi",
+      "link": "https://ejurnal.methodist.ac.id/index.php/methomika/index"
+    }
+  ],
+  "SINTA_5": [
+    {
+      "nama_jurnal": "JATISI (Jurnal Teknik Informatika dan Sistem Informasi)",
+      "link": "http://bit.ly/j-jatisi"
+    },
+    {
+      "nama_jurnal": "Pseudocode",
+      "link": "https://ejournal.unib.ac.id/index.php/pseudocode"
+    },
+    {
+      "nama_jurnal": "Jurnal Informatika Upgris",
+      "link": "http://journal.upgris.ac.id/index.php/JIU"
+    },
+    {
+      "nama_jurnal": "Jurnal Manajemen Informatika dan Sistem Informasi",
+      "link": "http://e-journal.stmiklombok.ac.id/index.php/misi"
+    },
+    {
+      "nama_jurnal": "JTIK (Jurnal Teknik Informatika Kaputama)",
+      "link": "https://jurnal.kaputama.ac.id/index.php/JTIK/index"
+    },
+    {
+      "nama_jurnal": "Jutis (Jurnal Teknik Informatika)",
+      "link": "http://ejournal.unis.ac.id/index.php/jutis"
+    },
+    {
+      "nama_jurnal": "Jurnal Ilmiah Informatika",
+      "link": "http://ejournal.upbatam.ac.id/index.php/jif"
+    },
+    {
+      "nama_jurnal": "JBMI (Jurnal Bisnis, Manajemen, dan Informatika)",
+      "link": "http://journal.unhas.ac.id/index.php/jbmi"
+    },
+    {
+      "nama_jurnal": "Explore IT : Jurnal Keilmuan dan Aplikasi Teknik Informatika",
+      "link": "https://jurnal.yudharta.ac.id/v2/index.php/EXPLORE-IT"
+    },
+    {
+      "nama_jurnal": "Jurnal Ilmiah Informatika Komputer",
+      "link": "https://ejournal.gunadarma.ac.id/index.php/infokom"
+    },
+    {
+      "nama_jurnal": "Perspektif : Jurnal Ekonomi dan Manajemen Akademi Bina Sarana Informatika",
+      "link": "http://ejournal.bsi.ac.id/ejurnal/index.php/perspektif"
+    },
+    {
+      "nama_jurnal": "Jurnal Sistem Informasi dan Informatika (Simika)",
+      "link": "http://ejournal.lppm-unbaja.ac.id/index.php/jsii/index"
+    },
+    {
+      "nama_jurnal": "Nuansa Informatika",
+      "link": "http://journal.uniku.ac.id/index.php/ilkom"
+    },
+    {
+      "nama_jurnal": "Jurnal Informatika Kaputama (JIK)",
+      "link": "http://jurnal.kaputama.ac.id/index.php/JIK/index"
+    },
+    {
+      "nama_jurnal": "Media Informatika",
+      "link": "https://journal.likmi.ac.id/index.php/media-informatika"
+    },
+    {
+      "nama_jurnal": "IKRA-ITH INFORMATIKA",
+      "link": "http://journals.upi-yai.ac.id/index.php/ikraith-informatika"
+    },
+    {
+      "nama_jurnal": "Infoman's: Jurnal Ilmu-Ilmu Manajeman dan Informatika",
+      "link": "https://ejournal.unsap.ac.id/index.php/infomans"
+    },
+    {
+      "nama_jurnal": "Jurnal Dinamika Informatika",
+      "link": "https://jdi.upy.ac.id/index.php/jdi"
+    },
+    {
+      "nama_jurnal": "JUTIM (Jurnal Teknik Informatika Musirawas)",
+      "link": "http://jurnal.univbinainsan.ac.id/index.php/jutim"
+    },
+    {
+      "nama_jurnal": "Bianglala Informatika : Jurnal Komputer dan Informatika Akademi Bina Sarana Informatika Yogyakarta",
+      "link": "https://ejournal.bsi.ac.id/ejurnal/index.php/Bianglala/"
+    },
+    {
+      "nama_jurnal": "Jurnal Masyarakat Informatika",
+      "link": "http://ejournal.undip.ac.id/index.php/jmasif/index"
+    },
+    {
+      "nama_jurnal": "Antivirus : Jurnal Ilmiah Teknik Informatika",
+      "link": "https://ejournal.unisbablitar.ac.id/index.php/antivirus"
+    },
+    {
+      "nama_jurnal": "JUTEKIN (Jurnal Teknik Informatika)",
+      "link": "http://jurnal.stmik-dci.ac.id/index.php/jutekin/"
+    },
+    {
+      "nama_jurnal": "Informasi Interaktif : Jurnal Informatika dan Teknologi Informasi",
+      "link": "http://informasiinteraktif.janabadra.ac.id/index.php/jii"
+    },
+    {
+      "nama_jurnal": "JURSIMA (Jurnal Sistem Informasi dan Manajemen)",
+      "link": "https://ojsiibn1.indobarunasional.ac.id/index.php/jursima"
+    },
+    {
+      "nama_jurnal": "Jurnal Sistem Informasi dan Informatika (Simika)",
+      "link": "http://ejournal.lppm-unbaja.ac.id/index.php/jsii/index"
+    },
+    {
+      "nama_jurnal": "Jurnal Sistem Informasi Universitas Suryadarma",
+      "link": "https://journal.universitassuryadarma.ac.id/index.php/jsi/"
+    },
+    {
+      "nama_jurnal": "Jurnal Ilmiah Rekayasa dan Manajemen Sistem Informasi",
+      "link": "http://ejournal.uin-suska.ac.id/index.php/RMSI"
+    },
+    {
+      "nama_jurnal": "Techno Xplore : Jurnal Ilmu Komputer dan Teknologi Informasi",
+      "link": "http://journal.ubpkarawang.ac.id/index.php/TeknikInformatikaSistemInfor/"
+    },
+    {
+      "nama_jurnal": "Jurnal Ilmu Komputer dan Desain Komunikasi Visual",
+      "link": "http://journal.unusida.ac.id/index.php/jik"
+    },
+    {
+      "nama_jurnal": "Jurnal Informasi dan Komputer",
+      "link": "https://dcckotabumi.ac.id/ojs/index.php/jik/index"
+    },
+    {
+      "nama_jurnal": "Jurnal Sistem Komputer & Kecerdasan Buatan",
+      "link": "http://jurnal.tau.ac.id/index.php/siskom-kb"
+    },
+    {
+      "nama_jurnal": "E-Link : Jurnal Teknik Elektro dan Informatika",
+      "link": "http://journal.umg.ac.id/index.php/e-link"
+    },
+    {
+      "nama_jurnal": "Jurnal Teknologi Informasi",
+      "link": "http://ejournal.urindo.ac.id/index.php/TI"
+    },
+    {
+      "nama_jurnal": "Pixel : Jurnal Ilmiah Komputer Grafis",
+      "link": "https://journal.stekom.ac.id/index.php/pixel"
+    },
+    {
+      "nama_jurnal": "Jurnal Informatika Terpadu",
+      "link": "https://journal.nurulfikri.ac.id/index.php/JIT"
+    }
+  ],
+  "SINTA_6": [
+    {
+      "nama_jurnal": "INTEK : Informatika dan Teknologi Informasi",
+      "link": "http://jurnal.umpwr.ac.id/index.php/intek/"
+    },
+    {
+      "nama_jurnal": "JuTIK: Jurnal Teknologi Informasi dan Komputer",
+      "link": "http://jurnal.undhirabali.ac.id/index.php/jutik/index"
+    },
+    {
+      "nama_jurnal": "JTII (Jurnal Teknologi Informasi Indonesia)",
+      "link": "http://jurnal.poligon.ac.id/index.php/JTII"
+    },
+    {
+      "nama_jurnal": "Jurnal Rekayasa Informasi",
+      "link": "https://ejournal.istn.ac.id/index.php/rekayasainformasi"
+    }
+  ],
+  "NON_SINTA": [
+    {
+      "nama_jurnal": "Jurnal Teknologi Informasi",
+      "link": "https://ejournal.akakom.ac.id/index.php/JuTI/index"
+    },
+    {
+      "nama_jurnal": "Router: Jurnal Teknik Informatika dan Terapan",
+      "link": "https://journal.aptii.or.id/index.php/Router/index"
+    },
+    {
+      "nama_jurnal": "Computing: Jurnal Informatika",
+      "link": "https://ejournal.unibba.ac.id/index.php/computing/index"
+    },
+    {
+      "nama_jurnal": "JTeKI: Jurnal Teknik Komputer & Informatika",
+      "link": "http://jteki.ppj.unp.ac.id/index.php/jteki"
+    },
+    {
+      "nama_jurnal": "Jusifor: Jurnal Sistem Informasi & Informatika",
+      "link": "https://ejournal.uniramalang.ac.id/index.php/jusifor"
+    },
+    {
+      "nama_jurnal": "Jupti: Jurnal Publikasi Teknik Informatika",
+      "link": "https://ejurnal.stie-trianandra.ac.id/index.php/jupti/index"
+    },
+    {
+      "nama_jurnal": "Modem: Jurnal Informatika dan Sains Teknologi",
+      "link": "https://journal.aptii.or.id/index.php/Modem/index"
+    }
+  ]
+}

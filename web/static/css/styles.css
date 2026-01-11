@@ -126,3 +126,46 @@ a:hover {
     margin-bottom: 4px;
     animation: fadeIn 0.3s ease;
 }
+
+/* Panel & collapsible */
+#journal-panel {
+    border-radius: 12px;
+    overflow: hidden;
+}
+#journal-panel .p-4 { padding: 1rem; }
+#journal-panel .border-b { border-bottom: 1px solid #eef2f7; }
+#journal-panel.collapsed { max-height: 48px; transition: max-height 0.35s ease; }
+#journal-panel:not(.collapsed) { max-height: 1200px; transition: max-height 0.45s ease; }
+
+/* Tabs look */
+#journal-tab-buttons button {
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: #f3f4f6;
+    color: #374151;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.03);
+}
+#journal-tab-buttons button.active {
+    background: linear-gradient(90deg, #2563eb, #10b981);
+    color: white;
+    box-shadow: 0 6px 18px rgba(16,185,129,0.12);
+}
+
+/* badges */
+#panel-badge {
+    font-weight: 600;
+}
+
+/* selected count badge */
+#selected-count {
+    font-weight: 600;
+}
+
+/* responsive tweaks */
+@media (max-width: 768px) {
+    #journal-tab-buttons { overflow-x: auto; padding-bottom: 6px; }
+    .grid { grid-template-columns: 1fr; }
+}
+
