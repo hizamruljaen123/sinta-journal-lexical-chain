@@ -236,7 +236,7 @@ def search():
                 valid_journals.append(journal)
 
             # Process in chunks (e.g., 5 journals per query to avoid query too long)
-            chunk_size = 5
+            chunk_size = 20
             for i in range(0, len(valid_journals), chunk_size):
                 chunk = valid_journals[i:i + chunk_size]
                 chunk_names = ", ".join([j['nama_jurnal'] for j in chunk])
