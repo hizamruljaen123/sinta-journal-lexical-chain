@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,34 +11,37 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <style>
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f8f9fa;
         }
-        
+
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
             height: 8px;
         }
+
         ::-webkit-scrollbar-track {
-            background: #f1f1f1; 
+            background: #f1f1f1;
         }
+
         ::-webkit-scrollbar-thumb {
-            background: #c1c1c1; 
+            background: #c1c1c1;
             border-radius: 4px;
         }
+
         ::-webkit-scrollbar-thumb:hover {
-            background: #a8a8a8; 
+            background: #a8a8a8;
         }
 
         /* Glassmorphism Card */
         .glass-card {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
             border-radius: 12px;
         }
@@ -49,7 +53,7 @@
             padding: 2rem 0;
             margin-bottom: 2rem;
             border-radius: 0 0 20px 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         /* Modern Table */
@@ -58,6 +62,7 @@
             border-spacing: 0;
             width: 100%;
         }
+
         .table-modern thead th {
             background-color: #f1f5f9;
             color: #475569;
@@ -70,12 +75,15 @@
             top: 0;
             z-index: 10;
         }
+
         .table-modern tbody tr {
             transition: all 0.2s;
         }
+
         .table-modern tbody tr:hover {
             background-color: #f8fafc;
         }
+
         .table-modern td {
             padding: 1rem;
             vertical-align: middle;
@@ -87,13 +95,14 @@
         .detail-row {
             background-color: #f8fafc;
         }
+
         .detail-content {
             padding: 1.5rem;
             background: #fff;
             border-radius: 8px;
             border: 1px solid #e2e8f0;
             margin: 0.5rem 1rem 1rem 1rem;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
         }
 
         /* Tab Navigation */
@@ -104,14 +113,16 @@
             padding: 1rem 1.5rem;
             transition: all 0.2s;
         }
+
         .nav-tabs .nav-link.active {
             color: #2563eb;
             border-bottom: 3px solid #2563eb;
             background: transparent;
         }
+
         .nav-tabs .nav-link:hover:not(.active) {
             color: #334155;
-            background-color: rgba(0,0,0,0.02);
+            background-color: rgba(0, 0, 0, 0.02);
         }
 
         /* Table Container with Parallax/Scroll effect */
@@ -123,13 +134,14 @@
             border-radius: 8px;
             background: white;
         }
-        
+
         .progress-bar-custom {
             height: 8px;
             border-radius: 4px;
             background-color: #e2e8f0;
             overflow: hidden;
         }
+
         .progress-fill {
             height: 100%;
             border-radius: 4px;
@@ -146,38 +158,51 @@
 
         .spinner-overlay {
             position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(255,255,255,0.7);
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.7);
             z-index: 9999;
             display: flex;
             align-items: center;
             justify-content: center;
             backdrop-filter: blur(2px);
         }
-        
+
         /* Animation */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
+
         .animate-fade-in {
             animation: fadeIn 0.3s ease-out forwards;
         }
     </style>
 </head>
+
 <body>
 
     <!-- Hero Header -->
     <div class="hero-section container-fluid">
         <div class="container text-center">
             <h1 class="display-5 fw-bold mb-2"><i class="bi bi-journal-text me-2"></i>SINTA Journal PDF Search</h1>
-            <p class="lead opacity-75 mb-0">Temukan referensi jurnal ilmiah Indonesia terakreditasi dengan mudah dan cepat.</p>
+            <p class="lead opacity-75 mb-0">Temukan referensi jurnal ilmiah Indonesia terakreditasi dengan mudah dan
+                cepat.</p>
         </div>
     </div>
 
     <!-- Main Content -->
     <div class="container-fluid px-4 px-md-5">
-        
+
         <!-- Search Card -->
         <div class="card glass-card border-0 mb-4 animate-fade-in">
             <div class="card-body p-4">
@@ -185,11 +210,14 @@
                     <div class="col-md-6">
                         <label class="form-label fw-bold small text-muted text-uppercase">Topik Pencarian</label>
                         <div class="input-group">
-                            <span class="input-group-text bg-white border-end-0"><i class="bi bi-search text-primary"></i></span>
-                            <input name="topic" type="text" class="form-control border-start-0 ps-0 shadow-none" placeholder="Contoh: Machine Learning, Ekonomi Syariah..." required style="padding: 0.75rem;">
+                            <span class="input-group-text bg-white border-end-0"><i
+                                    class="bi bi-search text-primary"></i></span>
+                            <input name="topic" type="text" class="form-control border-start-0 ps-0 shadow-none"
+                                placeholder="Contoh: Machine Learning, Ekonomi Syariah..." required
+                                style="padding: 0.75rem;">
                         </div>
                     </div>
-                    
+
                     <div class="col-md-3">
                         <label class="form-label fw-bold small text-muted text-uppercase">Filter SINTA</label>
                         <select name="sinta_rank" class="form-select shadow-none" style="padding: 0.75rem;">
@@ -210,12 +238,13 @@
                         </button>
                     </div>
                 </form>
-                
+
                 <div class="d-flex justify-content-between align-items-center mt-3">
-                     <div class="text-muted small">
+                    <div class="text-muted small">
                         <i class="bi bi-info-circle me-1"></i>
-                        Sumber terpilih: <span id="selected-badge" class="badge bg-soft-primary text-primary border border-primary-subtle">Auto (Semua)</span>
-                     </div>
+                        Sumber terpilih: <span id="selected-badge"
+                            class="badge bg-soft-primary text-primary border border-primary-subtle">Auto (Semua)</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -225,21 +254,23 @@
             <div class="card-header bg-white border-bottom-0 pt-3 px-4">
                 <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="results-tab" data-bs-toggle="tab" data-bs-target="#results-pane" type="button" role="tab">
+                        <button class="nav-link active" id="results-tab" data-bs-toggle="tab"
+                            data-bs-target="#results-pane" type="button" role="tab">
                             <i class="bi bi-list-check me-2"></i>Hasil Pencarian
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="journals-tab" data-bs-toggle="tab" data-bs-target="#journals-pane" type="button" role="tab">
+                        <button class="nav-link" id="journals-tab" data-bs-toggle="tab" data-bs-target="#journals-pane"
+                            type="button" role="tab">
                             <i class="bi bi-collection me-2"></i>Daftar Jurnal
                         </button>
                     </li>
                 </ul>
             </div>
-            
+
             <div class="card-body p-0">
                 <div class="tab-content" id="myTabContent">
-                    
+
                     <!-- Results Pane -->
                     <div class="tab-pane fade show active" id="results-pane" role="tabpanel">
                         <div id="loading" class="text-center py-5 d-none">
@@ -251,43 +282,48 @@
                         <div id="results-container" class="table-container border-0" style="display:none;">
                             <!-- Results Table Will Be Injected Here -->
                         </div>
-                        
+
                         <div id="empty-state" class="text-center py-5">
-                            <img src="https://cdn-icons-png.flaticon.com/512/7486/7486744.png" alt="Search" width="120" class="mb-3 opacity-50">
+                            <img src="https://cdn-icons-png.flaticon.com/512/7486/7486744.png" alt="Search" width="120"
+                                class="mb-3 opacity-50">
                             <p class="text-muted mb-0">Silakan masukkan topik dan klik cari untuk melihat hasil.</p>
                         </div>
                     </div>
 
                     <!-- Journal List Pane -->
                     <div class="tab-pane fade" id="journals-pane" role="tabpanel">
-                        <div class="p-4 border-bottom bg-light d-flex justify-content-between align-items-center flex-wrap gap-2">
-                             <div id="journal-categories" class="btn-group shadow-sm bg-white rounded" role="group">
-                                 <!-- Category buttons inject here -->
-                             </div>
-                             
-                             <div class="form-check form-switch">
+                        <div
+                            class="p-4 border-bottom bg-light d-flex justify-content-between align-items-center flex-wrap gap-2">
+                            <div id="journal-categories" class="btn-group shadow-sm bg-white rounded" role="group">
+                                <!-- Category buttons inject here -->
+                            </div>
+
+                            <div class="form-check form-switch">
                                 <input class="form-check-input" type="checkbox" id="select-all-toggle">
-                                <label class="form-check-label small fw-bold text-muted" for="select-all-toggle">Pilih Semua di Kategori Ini</label>
-                             </div>
+                                <label class="form-check-label small fw-bold text-muted" for="select-all-toggle">Pilih
+                                    Semua di Kategori Ini</label>
+                            </div>
                         </div>
-                        
+
                         <div class="table-container border-0" style="max-height: 65vh;">
                             <div id="journal-list-container">
                                 <div class="text-center py-5 text-muted">Memuat daftar jurnal...</div>
                             </div>
                         </div>
-                        
+
                         <div class="p-3 bg-light border-top text-end">
-                             <small class="text-muted me-3">Total Jurnal: <span id="total-journals-count">0</span></small>
-                             <small class="text-muted fw-bold">Terpilih: <span id="selected-journals-count">0</span></small>
+                            <small class="text-muted me-3">Total Jurnal: <span
+                                    id="total-journals-count">0</span></small>
+                            <small class="text-muted fw-bold">Terpilih: <span
+                                    id="selected-journals-count">0</span></small>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        
+
     </div>
-    
+
     <!-- Footer -->
     <footer class="text-center py-4 text-muted small mt-4">
         &copy; 2026 SINTA Journal Finder. Enhanced with AI Agents.
@@ -295,23 +331,23 @@
 
     <!-- Bootstrap Bundle JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <script>
         // State
         let journalsData = {};
         let selectedSources = new Map();
         let currentCategory = 'SINTA_1';
-        
+
         // DOM Elements
         const form = document.getElementById('search-form');
         const loading = document.getElementById('loading');
         const emptyState = document.getElementById('empty-state');
         const resultsContainer = document.getElementById('results-container');
         const log = document.getElementById('log');
-        
+
         // --- Initialization ---
         document.addEventListener('DOMContentLoaded', () => {
-             fetchJournals();
+            fetchJournals();
         });
 
         // --- Fetch & Render Journals ---
@@ -320,7 +356,7 @@
                 const res = await fetch('/journals');
                 const data = await res.json();
                 journalsData = data;
-                
+
                 renderCategoryButtons();
                 renderJournalList(currentCategory);
                 updateSelectionUI();
@@ -333,27 +369,27 @@
         function renderCategoryButtons() {
             const container = document.getElementById('journal-categories');
             container.innerHTML = '';
-            
+
             const categories = Object.keys(journalsData).filter(k => k.startsWith('SINTA') || k === 'NON_SINTA');
             // Sort custom: S1..S6, NON
-             categories.sort(); 
+            categories.sort();
 
             categories.forEach((cat, idx) => {
-                 const count = journalsData[cat].length;
-                 const btn = document.createElement('button');
-                 btn.type = 'button';
-                 btn.className = `btn btn-outline-secondary btn-sm ${cat === currentCategory ? 'active' : ''}`;
-                 btn.innerHTML = `${cat.replace('_', ' ')} <span class="badge bg-secondary text-white ms-1" style="font-size:0.6rem">${count}</span>`;
-                 btn.onclick = () => {
-                     // switch tab style
-                     container.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
-                     btn.classList.add('active');
-                     currentCategory = cat;
-                     renderJournalList(cat);
-                 }
-                 container.appendChild(btn);
+                const count = journalsData[cat].length;
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = `btn btn-outline-secondary btn-sm ${cat === currentCategory ? 'active' : ''}`;
+                btn.innerHTML = `${cat.replace('_', ' ')} <span class="badge bg-secondary text-white ms-1" style="font-size:0.6rem">${count}</span>`;
+                btn.onclick = () => {
+                    // switch tab style
+                    container.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentCategory = cat;
+                    renderJournalList(cat);
+                }
+                container.appendChild(btn);
             });
-            
+
             // Set initial stats
             const total = categories.reduce((acc, k) => acc + journalsData[k].length, 0);
             document.getElementById('total-journals-count').textContent = total;
@@ -362,7 +398,7 @@
         function renderJournalList(category) {
             const list = journalsData[category] || [];
             const container = document.getElementById('journal-list-container');
-            
+
             // Check select-all state for this category
             const selectAllToggle = document.getElementById('select-all-toggle');
             // Logic to check if all in this category are selected
@@ -401,7 +437,7 @@
                     </thead>
                     <tbody>
             `;
-            
+
             list.forEach((j, i) => {
                 const id = j.link || `${category}::${i}`;
                 const isChecked = selectedSources.has(id);
@@ -436,7 +472,7 @@
                         selectedSources.delete(id);
                     }
                     updateSelectionUI();
-                    
+
                     // Update header toggle state
                     const allNow = list.every((item, idx) => selectedSources.has(item.link || `${category}::${idx}`));
                     selectAllToggle.checked = allNow;
@@ -448,7 +484,7 @@
             const count = selectedSources.size;
             document.getElementById('selected-journals-count').textContent = count;
             const badge = document.getElementById('selected-badge');
-            
+
             if (count === 0) {
                 badge.className = 'badge bg-soft-primary text-primary border border-primary-subtle';
                 badge.textContent = 'Auto (Semua)';
@@ -461,13 +497,13 @@
         // --- Search Functionality ---
         form.addEventListener('submit', (e) => {
             e.preventDefault();
-            
+
             // UI States
             loading.classList.remove('d-none');
             emptyState.classList.add('d-none');
             resultsContainer.style.display = 'none';
             log.innerHTML = '';
-            
+
             // Switch to results tab if not active
             const resultsTab = new bootstrap.Tab(document.getElementById('results-tab'));
             resultsTab.show();
@@ -484,7 +520,7 @@
                 const reader = response.body.getReader();
                 const decoder = new TextDecoder();
                 let text = '';
-                
+
                 function read() {
                     reader.read().then(({ done, value }) => {
                         if (done) {
@@ -494,7 +530,7 @@
                         text += decoder.decode(value, { stream: true });
                         const lines = text.split('\n\n');
                         text = lines.pop(); // Keep partial line
-                        
+
                         lines.forEach(line => {
                             if (line.startsWith('data: ')) {
                                 const message = line.slice(6);
@@ -506,10 +542,10 @@
                                     loading.classList.add('d-none');
                                 } else if (message === 'DONE') {
                                     if (resultsContainer.style.display === 'none') {
-                                         log.innerHTML += '<div class="text-danger mt-2">Pencarian selesai, tidak ada hasil.</div>';
+                                        log.innerHTML += '<div class="text-danger mt-2">Pencarian selesai, tidak ada hasil.</div>';
                                     }
                                 } else if (message.startsWith('ERROR')) {
-                                     log.innerHTML += `<div class="text-danger mt-1"><i class="bi bi-exclamation-circle"></i> ${message}</div>`;
+                                    log.innerHTML += `<div class="text-danger mt-1"><i class="bi bi-exclamation-circle"></i> ${message}</div>`;
                                 } else {
                                     // Progress log
                                     log.innerHTML = `<span class="text-info"><i class="bi bi-activity"></i> ${message}</span>`;
@@ -532,6 +568,24 @@
                 return;
             }
 
+            // Group by SINTA rank
+            const groups = {
+                'SINTA_1': [], 'SINTA_2': [], 'SINTA_3': [],
+                'SINTA_4': [], 'SINTA_5': [], 'SINTA_6': [],
+                'NON_SINTA': [], 'Other': []
+            };
+
+            articles.forEach(art => {
+                let rank = art.peringkat_sinta;
+                if (!rank) rank = 'Other';
+                // Normalize keys just in case
+                if (groups[rank]) {
+                    groups[rank].push(art);
+                } else {
+                    groups['Other'].push(art);
+                }
+            });
+
             let html = `
                 <table class="table table-modern table-hover align-middle mb-0">
                     <thead class="table-light">
@@ -546,66 +600,89 @@
                     <tbody>
             `;
 
-            articles.forEach((art, idx) => {
-                const scorePct = Math.min(100, Math.round(art.relevance_score * 10)); // Arbitrary scale
-                html += `
-                    <tr style="cursor: pointer;" onclick="toggleRowDetails('detail-${idx}')">
-                        <td class="fw-bold text-dark">
-                            ${art.judul}
-                            <i class="bi bi-chevron-down text-muted ms-2" style="font-size: 0.8em"></i>
-                        </td>
-                        <td class="text-secondary small">${art.jurnal}</td>
-                        <td><span class="badge bg-info bg-opacity-10 text-info border border-info border-opacity-25 badge-sinta">${art.peringkat_sinta || '?'}</span></td>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <div class="progress flex-grow-1" style="height: 6px;">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: ${scorePct}%"></div>
-                                </div>
-                                <span class="ms-2 small text-muted">${art.relevance_score}</span>
-                            </div>
-                        </td>
-                        <td class="text-end">
-                            <a href="${art.link}" target="_blank" class="btn btn-sm btn-outline-primary rounded-pill shadow-sm" onclick="event.stopPropagation()">
-                                <i class="bi bi-file-earmark-pdf-fill me-1"></i> PDF
-                            </a>
-                        </td>
-                    </tr>
-                    <!-- Detail Row -->
-                    <tr id="detail-${idx}" class="detail-row" style="display: none;">
-                        <td colspan="5" class="p-0 border-0">
-                            <div class="detail-content animate-fade-in">
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <h6 class="text-uppercase text-xs fw-bold text-muted mb-2">Ringkasan (Snippet)</h6>
-                                        <p class="text-secondary mb-3 small" style="line-height: 1.6;">${art.snippet}</p>
-                                        
-                                        <h6 class="text-uppercase text-xs fw-bold text-muted mb-2">Analisis Leksikal</h6>
-                                        <div class="d-flex flex-wrap gap-2">
-                                            ${art.lexical_analysis.map(t => 
-                                                `<span class="badge bg-light text-dark border"><i class="bi bi-tag-fill text-muted me-1"></i>${t.term} <span class="fw-normal text-muted">(${t.score})</span></span>`
-                                            ).join('')}
+            const orderedKeys = ['SINTA_1', 'SINTA_2', 'SINTA_3', 'SINTA_4', 'SINTA_5', 'SINTA_6', 'NON_SINTA', 'Other'];
+            let globalIdx = 0;
+
+            orderedKeys.forEach(key => {
+                const groupList = groups[key];
+                if (groupList.length > 0) {
+                    // Section Header
+                    const niceLabel = key === 'NON_SINTA' ? 'Non SINTA' : key === 'Other' ? 'Lainnya' : key.replace('_', ' ');
+                    const badgeClass = key.startsWith('SINTA') ? 'bg-primary' : 'bg-secondary';
+
+                    html += `
+                        <tr class="bg-light">
+                            <td colspan="5" class="py-2 px-3 fw-bold text-uppercase text-xs text-muted border-bottom border-top">
+                                <i class="bi bi-bookmark-fill text-primary me-2"></i>${niceLabel}
+                            </td>
+                        </tr>
+                    `;
+
+                    groupList.sort((a, b) => b.relevance_score - a.relevance_score); // Ensure relevance sort within group
+
+                    groupList.forEach(art => {
+                        const idx = globalIdx++;
+                        const scorePct = Math.min(100, Math.round(art.relevance_score * 10)); // Arbitrary scale
+
+                        html += `
+                            <tr style="cursor: pointer;" onclick="toggleRowDetails('detail-${idx}')">
+                                <td class="fw-bold text-dark">
+                                    ${art.judul}
+                                    <i class="bi bi-chevron-down text-muted ms-2" style="font-size: 0.8em"></i>
+                                </td>
+                                <td class="text-secondary small">${art.jurnal}</td>
+                                <td><span class="badge bg-info bg-opacity-10 text-info border border-info border-opacity-25 badge-sinta">${art.peringkat_sinta || '-'}</span></td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="progress flex-grow-1" style="height: 6px;">
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: ${scorePct}%"></div>
+                                        </div>
+                                        <span class="ms-2 small text-muted">${art.relevance_score}</span>
+                                    </div>
+                                </td>
+                                <td class="text-end">
+                                    <a href="${art.link}" target="_blank" class="btn btn-sm btn-outline-primary rounded-pill shadow-sm" onclick="event.stopPropagation()">
+                                        <i class="bi bi-file-earmark-pdf-fill me-1"></i> PDF
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr id="detail-${idx}" class="detail-row" style="display: none;">
+                                <td colspan="5" class="p-0 border-0">
+                                    <div class="detail-content animate-fade-in">
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <h6 class="text-uppercase text-xs fw-bold text-muted mb-2">Ringkasan (Snippet)</h6>
+                                                <p class="text-secondary mb-3 small" style="line-height: 1.6;">${art.snippet}</p>
+                                                
+                                                <h6 class="text-uppercase text-xs fw-bold text-muted mb-2">Analisis Leksikal</h6>
+                                                <div class="d-flex flex-wrap gap-2">
+                                                    ${art.lexical_analysis.map(t =>
+                            `<span class="badge bg-light text-dark border"><i class="bi bi-tag-fill text-muted me-1"></i>${t.term} <span class="fw-normal text-muted">(${t.score})</span></span>`
+                        ).join('')}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 border-start">
+                                                <div class="p-2">
+                                                    <p class="mb-2 small"><strong>Jurnal:</strong> ${art.jurnal}</p>
+                                                    <p class="mb-3 small"><strong>Web:</strong> <a href="${art.website_jurnal}" target="_blank" class="text-decoration-none text-truncate d-inline-block" style="max-width: 150px; vertical-align: bottom;">${art.website_jurnal}</a></p>
+                                                    
+                                                    <button class="btn btn-sm btn-outline-secondary w-100 mb-2" onclick="window.open('${art.link}', '_blank')"><i class="bi bi-download me-2"></i>Download PDF</button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4 border-start">
-                                        <div class="p-2">
-                                            <p class="mb-2 small"><strong>Jurnal:</strong> ${art.jurnal}</p>
-                                            <p class="mb-3 small"><strong>Web:</strong> <a href="${art.website_jurnal}" target="_blank" class="text-decoration-none text-truncate d-inline-block" style="max-width: 150px; vertical-align: bottom;">${art.website_jurnal}</a></p>
-                                            
-                                            <button class="btn btn-sm btn-outline-secondary w-100 mb-2" onclick="window.open('${art.link}', '_blank')"><i class="bi bi-download me-2"></i>Download PDF</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                `;
+                                </td>
+                            </tr>
+                        `;
+                    });
+                }
             });
 
             html += '</tbody></table>';
             resultsContainer.innerHTML = html;
         }
 
-        window.toggleRowDetails = function(id) {
+        window.toggleRowDetails = function (id) {
             const row = document.getElementById(id);
             if (row.style.display === 'none') {
                 row.style.display = 'table-row';
@@ -615,4 +692,5 @@
         }
     </script>
 </body>
+
 </html>
