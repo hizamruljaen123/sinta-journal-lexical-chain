@@ -87,7 +87,7 @@ class GoogleSearcher:
         self.api_key = api_key
 
     def search_google(self, query, journal_info):
-        search_query = f"{query} site:{journal_info['link']} filetype:pdf"
+        search_query = f"{query} site:{journal_info['link']}"
         params = {
             "engine": "google",
             "q": search_query,
@@ -103,8 +103,7 @@ class GoogleSearcher:
             if "organic_results" in results:
                 for result in results["organic_results"]:
                     link = result.get('link', '')
-                    if not link.lower().endswith('.pdf'):
-                        continue
+
                     article = {
                         'judul': result.get('title', ''),
                         'link': link,
@@ -117,6 +116,66 @@ class GoogleSearcher:
             return articles
         except Exception as e:
             print(f"Error saat mencari di {journal_info['nama_jurnal']}: {str(e)}")
+            return []
+
+    def search_google_batch(self, query, journals_chunk):
+        if not journals_chunk:
+            return []
+            
+        # Filter only journals with valid links
+        valid_journals = [j for j in journals_chunk if j.get('link')]
+        if not valid_journals:
+            return []
+
+        sites_query = " OR ".join([f"site:{j['link']}" for j in valid_journals])
+        search_query = f"{query} ({sites_query})"
+        
+        params = {
+            "engine": "google",
+            "q": search_query,
+            "hl": "id",
+            "num": 20, 
+            "api_key": self.api_key
+        }
+        
+        try:
+            response = requests.get("https://serpapi.com/search", params=params)
+            response.raise_for_status()
+            results = response.json()
+            articles = []
+            
+            if "organic_results" in results:
+                for result in results["organic_results"]:
+                    link = result.get('link', '')
+                    
+                    matched_journal = None
+                    for journal in valid_journals:
+                        # Simple check if journal link (domain/path) is in result link
+                        # Remove protocol for cleaner matching
+                        clean_journal_link = journal['link'].replace('https://', '').replace('http://', '').strip('/')
+                        if clean_journal_link and clean_journal_link in link:
+                            matched_journal = journal
+                            break
+                    
+                    if not matched_journal:
+                        matched_journal = {
+                            'nama_jurnal': 'Unknown Source',
+                            'sinta_rank': 'Unknown',
+                            'link': ''
+                        }
+
+                    article = {
+                        'judul': result.get('title', ''),
+                        'link': link,
+                        'snippet': result.get('snippet', ''),
+                        'jurnal': matched_journal['nama_jurnal'],
+                        'peringkat_sinta': matched_journal.get('sinta_rank', ''),
+                        'website_jurnal': matched_journal['link']
+                    }
+                    articles.append(article)
+            return articles
+        except Exception as e:
+            print(f"Error saat batch search: {str(e)}")
             return []
 
 app = Flask(__name__)
@@ -133,7 +192,7 @@ def search():
         sinta_rank = request.form.get('sinta_rank')
         sources_json = request.form.get('sources_json')
 
-        api_key = "d3d775e783819ad347d88e1f236ff3a8a6e883e171e836525df0bd7607bfe995"
+        api_key = "fe4e3deb26f30bef89ffb0eb680514a0a251535f3ac07be56d77151ea234ec08"
         searcher = GoogleSearcher(api_key)
         analyzer = LexicalChainAnalyzer()
 
@@ -164,18 +223,29 @@ def search():
                 yield "data: ERROR: format sources_json tidak valid\n\n"
                 return
 
+            # Filter valid journals
+            valid_journals = []
             for journal in selected:
-                # ensure minimal keys
                 if not journal.get("nama_jurnal") and not journal.get("link"):
+                    continue
+                if 'bit.ly' in journal.get('link', '').lower():
                     continue
                 journal.setdefault("nama_jurnal", journal.get("link", "Tidak ada nama"))
                 journal.setdefault("link", journal.get("link", ""))
                 journal.setdefault("sinta_rank", journal.get("sinta_rank", "SELECTED"))
-                yield f"data: Mencari di {journal['nama_jurnal']} ({journal.get('sinta_rank')})...\n\n"
-                results = searcher.search_google(topic, journal)
+                valid_journals.append(journal)
+
+            # Process in chunks (e.g., 5 journals per query to avoid query too long)
+            chunk_size = 5
+            for i in range(0, len(valid_journals), chunk_size):
+                chunk = valid_journals[i:i + chunk_size]
+                chunk_names = ", ".join([j['nama_jurnal'] for j in chunk])
+                yield f"data: Mencari di {chunk_names}...\n\n"
+                
+                results = searcher.search_google_batch(topic, chunk)
                 all_results.extend(results)
                 snippets.extend([r.get('snippet', '') for r in results])
-                time.sleep(1)
+                time.sleep(1) # Be polite to API
         else:
             def group_matches(selected_rank, group_key):
                 if not selected_rank:
@@ -197,6 +267,8 @@ def search():
                 for journal in journals_data[rank]:
                     # skip header-like or empty entries
                     if not journal.get('nama_jurnal'):
+                        continue
+                    if 'bit.ly' in journal.get('link', '').lower():
                         continue
                     journal['sinta_rank'] = rank
                     yield f"data: Mencari di {journal['nama_jurnal']} ({rank})...\n\n"
@@ -248,9 +320,10 @@ def journals():
 
     result = {'catatan': data.get('catatan', '')}
     for k in ordered:
-        result[k] = data.get(k, [])
+        raw_journals = data.get(k, [])
+        result[k] = [j for j in raw_journals if 'bit.ly' not in j.get('link', '').lower()]
 
     return jsonify(result)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5002, debug=True)
