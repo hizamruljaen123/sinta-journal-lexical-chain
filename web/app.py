@@ -109,6 +109,7 @@ class GoogleSearcher:
                         'link': link,
                         'snippet': result.get('snippet', ''),
                         'jurnal': journal_info['nama_jurnal'],
+                        'penerbit': result.get('source', journal_info['nama_jurnal']),
                         'peringkat_sinta': journal_info.get('sinta_rank', ''),
                         'website_jurnal': journal_info['link']
                     }
@@ -169,6 +170,7 @@ class GoogleSearcher:
                         'link': link,
                         'snippet': result.get('snippet', ''),
                         'jurnal': matched_journal['nama_jurnal'],
+                        'penerbit': result.get('source', matched_journal['nama_jurnal']),
                         'peringkat_sinta': matched_journal.get('sinta_rank', ''),
                         'website_jurnal': matched_journal['link']
                     }

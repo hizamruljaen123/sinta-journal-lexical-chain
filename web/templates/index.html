@@ -648,9 +648,14 @@
                             </tr>
                             <tr id="detail-${idx}" class="detail-row" style="display: none;">
                                 <td colspan="5" class="p-0 border-0">
-                                    <div class="detail-content animate-fade-in">
+                                    <div class="detail-content animate-fade-in shadow-sm">
                                         <div class="row">
                                             <div class="col-md-8">
+                                                <div class="mb-3">
+                                                    <h6 class="text-uppercase text-xs fw-bold text-primary mb-1">Judul Lengkap</h6>
+                                                    <p class="text-dark fw-bold mb-0">${art.judul}</p>
+                                                </div>
+
                                                 <h6 class="text-uppercase text-xs fw-bold text-muted mb-2">Ringkasan (Snippet)</h6>
                                                 <p class="text-secondary mb-3 small" style="line-height: 1.6;">${art.snippet}</p>
                                                 
@@ -663,10 +668,20 @@
                                             </div>
                                             <div class="col-md-4 border-start">
                                                 <div class="p-2">
-                                                    <p class="mb-2 small"><strong>Jurnal:</strong> ${art.jurnal}</p>
-                                                    <p class="mb-3 small"><strong>Web:</strong> <a href="${art.website_jurnal}" target="_blank" class="text-decoration-none text-truncate d-inline-block" style="max-width: 150px; vertical-align: bottom;">${art.website_jurnal}</a></p>
+                                                    <div class="mb-3">
+                                                        <h6 class="text-uppercase text-xs fw-bold text-muted mb-1">Nama Penerbit / Jurnal</h6>
+                                                        <p class="mb-0 small fw-medium">${art.penerbit || art.jurnal}</p>
+                                                    </div>
                                                     
-                                                    <button class="btn btn-sm btn-outline-secondary w-100 mb-2" onclick="window.open('${art.link}', '_blank')"><i class="bi bi-download me-2"></i>Download PDF</button>
+                                                    <p class="mb-2 small"><strong>Website Jurnal:</strong> <br>
+                                                        <a href="${art.website_jurnal}" target="_blank" class="text-decoration-none text-truncate d-inline-block" style="max-width: 200px; vertical-align: bottom;">${art.website_jurnal}</a>
+                                                    </p>
+                                                    
+                                                    <hr class="my-3 opacity-50">
+                                                    
+                                                    <button class="btn btn-sm btn-primary w-100 mb-2" onclick="window.open('${art.link}', '_blank')">
+                                                        <i class="bi bi-download me-2"></i>Download PDF
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
